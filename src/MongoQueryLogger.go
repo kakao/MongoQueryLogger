@@ -51,7 +51,6 @@ var (
 //*TEMPORAL* const STATUS_INTERVAL_SECOND = uint64(10)
 const STATUS_INTERVAL_SECOND = uint64(1)
 
-// Internal queue for rabbit mq publisher
 var queues []chan *query.UserRequest
 
 /**
@@ -112,7 +111,6 @@ func main() {
 
 	expr := fmt.Sprintf("tcp dst port %d", *port)
 	
-	// Prepare rabbit mq publisher
 	var realQueueSize = 100
 	var realThreadCount int = 4
 	if *threads>=2 && *threads<=10 {
